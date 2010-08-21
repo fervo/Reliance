@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 		8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
+		F767140712201AC6004C816B /* IntegrationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F767140612201AC6004C816B /* IntegrationTest.m */; };
+		F767141B12201B56004C816B /* Reliance.h in Headers */ = {isa = PBXBuildFile; fileRef = F767141A12201B56004C816B /* Reliance.h */; };
+		F767143312201D35004C816B /* PlaceFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = F767143212201D35004C816B /* PlaceFinder.m */; };
+		F767143612201D85004C816B /* DataContext.m in Sources */ = {isa = PBXBuildFile; fileRef = F767143512201D85004C816B /* DataContext.m */; };
+		F767143912201D96004C816B /* SqlTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = F767143812201D96004C816B /* SqlTransport.m */; };
+		F767143C12201DC4004C816B /* ConfigurationStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F767143B12201DC4004C816B /* ConfigurationStore.m */; };
 		F7E2D094121AE549006AA06C /* TestContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E2D07D121AE3F6006AA06C /* TestContainer.m */; };
 		F7E2D09F121AF5F5006AA06C /* RLContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = F7E2D09D121AF5F5006AA06C /* RLContainer.h */; };
 		F7E2D0A0121AF5F5006AA06C /* RLContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E2D09E121AF5F5006AA06C /* RLContainer.m */; };
@@ -18,10 +24,10 @@
 		F7E2D0D3121AF893006AA06C /* RLServiceDescription.h in Headers */ = {isa = PBXBuildFile; fileRef = F7E2D0D0121AF893006AA06C /* RLServiceDescription.h */; };
 		F7E2D0D4121AF893006AA06C /* RLServiceDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E2D0D1121AF893006AA06C /* RLServiceDescription.m */; };
 		F7E2D359121B2FDF006AA06C /* TestProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E2D358121B2FDF006AA06C /* TestProvider.m */; };
-		F7E2D369121B311C006AA06C /* RLProviderDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E2D368121B311C006AA06C /* RLProviderDescription.m */; };
-		F7E2D36A121B311C006AA06C /* RLProviderDescription.h in Headers */ = {isa = PBXBuildFile; fileRef = F7E2D367121B311C006AA06C /* RLProviderDescription.h */; };
-		F7E2D36B121B311C006AA06C /* RLProviderDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E2D368121B311C006AA06C /* RLProviderDescription.m */; };
-		F7E2D3D8121B4133006AA06C /* TestProviderDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E2D3D7121B4133006AA06C /* TestProviderDescription.m */; };
+		F7E2D369121B311C006AA06C /* RLServiceProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E2D368121B311C006AA06C /* RLServiceProvider.m */; };
+		F7E2D36A121B311C006AA06C /* RLServiceProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = F7E2D367121B311C006AA06C /* RLServiceProvider.h */; };
+		F7E2D36B121B311C006AA06C /* RLServiceProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E2D368121B311C006AA06C /* RLServiceProvider.m */; };
+		F7E2D3D8121B4133006AA06C /* TestServiceProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E2D3D7121B4133006AA06C /* TestServiceProvider.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +39,17 @@
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DC2EF5B0486A6940098B216 /* Reliance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Reliance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2F7E79907B2D74100F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		F767140512201AC6004C816B /* IntegrationTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntegrationTest.h; sourceTree = "<group>"; };
+		F767140612201AC6004C816B /* IntegrationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntegrationTest.m; sourceTree = "<group>"; };
+		F767141A12201B56004C816B /* Reliance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reliance.h; sourceTree = "<group>"; };
+		F767143112201D35004C816B /* PlaceFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceFinder.h; sourceTree = "<group>"; };
+		F767143212201D35004C816B /* PlaceFinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceFinder.m; sourceTree = "<group>"; };
+		F767143412201D85004C816B /* DataContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataContext.h; sourceTree = "<group>"; };
+		F767143512201D85004C816B /* DataContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataContext.m; sourceTree = "<group>"; };
+		F767143712201D96004C816B /* SqlTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SqlTransport.h; sourceTree = "<group>"; };
+		F767143812201D96004C816B /* SqlTransport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SqlTransport.m; sourceTree = "<group>"; };
+		F767143A12201DC4004C816B /* ConfigurationStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigurationStore.h; sourceTree = "<group>"; };
+		F767143B12201DC4004C816B /* ConfigurationStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigurationStore.m; sourceTree = "<group>"; };
 		F7E2D07C121AE3F6006AA06C /* TestContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestContainer.h; sourceTree = "<group>"; };
 		F7E2D07D121AE3F6006AA06C /* TestContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestContainer.m; sourceTree = "<group>"; };
 		F7E2D08F121AE53A006AA06C /* Unit tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unit tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,13 +61,13 @@
 		F7E2D0D0121AF893006AA06C /* RLServiceDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLServiceDescription.h; sourceTree = "<group>"; };
 		F7E2D0D1121AF893006AA06C /* RLServiceDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLServiceDescription.m; sourceTree = "<group>"; };
 		F7E2D280121AFFA2006AA06C /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCMock.framework; sourceTree = "<group>"; };
-		F7E2D31C121B243E006AA06C /* TestProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestProtocol.h; sourceTree = "<group>"; };
-		F7E2D357121B2FDF006AA06C /* TestProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestProvider.h; sourceTree = "<group>"; };
-		F7E2D358121B2FDF006AA06C /* TestProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestProvider.m; sourceTree = "<group>"; };
-		F7E2D367121B311C006AA06C /* RLProviderDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLProviderDescription.h; sourceTree = "<group>"; };
-		F7E2D368121B311C006AA06C /* RLProviderDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLProviderDescription.m; sourceTree = "<group>"; };
-		F7E2D3D6121B4133006AA06C /* TestProviderDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestProviderDescription.h; sourceTree = "<group>"; };
-		F7E2D3D7121B4133006AA06C /* TestProviderDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestProviderDescription.m; sourceTree = "<group>"; };
+		F7E2D31C121B243E006AA06C /* TestProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestProtocol.h; path = "Test resources/TestProtocol.h"; sourceTree = "<group>"; };
+		F7E2D357121B2FDF006AA06C /* TestProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestProvider.h; path = "Test resources/TestProvider.h"; sourceTree = "<group>"; };
+		F7E2D358121B2FDF006AA06C /* TestProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestProvider.m; path = "Test resources/TestProvider.m"; sourceTree = "<group>"; };
+		F7E2D367121B311C006AA06C /* RLServiceProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLServiceProvider.h; sourceTree = "<group>"; };
+		F7E2D368121B311C006AA06C /* RLServiceProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLServiceProvider.m; sourceTree = "<group>"; };
+		F7E2D3D6121B4133006AA06C /* TestServiceProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestServiceProvider.h; sourceTree = "<group>"; };
+		F7E2D3D7121B4133006AA06C /* TestServiceProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestServiceProvider.m; sourceTree = "<group>"; };
 		F7E2D3E4121B44DA006AA06C /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,6 +102,7 @@
 		0867D691FE84028FC02AAC07 /* Reliance */ = {
 			isa = PBXGroup;
 			children = (
+				F767147412202515004C816B /* Tests */,
 				08FB77AEFE84172EC02AAC07 /* Classes */,
 				32C88DFF0371C24200C91783 /* Other Sources */,
 				089C1665FE841158C02AAC07 /* Resources */,
@@ -117,15 +135,14 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				F7E2D081121AE3FE006AA06C /* Tests */,
 				F7E2D09D121AF5F5006AA06C /* RLContainer.h */,
 				F7E2D09E121AF5F5006AA06C /* RLContainer.m */,
 				F7E2D0D0121AF893006AA06C /* RLServiceDescription.h */,
 				F7E2D0D1121AF893006AA06C /* RLServiceDescription.m */,
-				F7E2D367121B311C006AA06C /* RLProviderDescription.h */,
-				F7E2D368121B311C006AA06C /* RLProviderDescription.m */,
+				F7E2D367121B311C006AA06C /* RLServiceProvider.h */,
+				F7E2D368121B311C006AA06C /* RLServiceProvider.m */,
 			);
-			name = Classes;
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */ = {
@@ -150,33 +167,70 @@
 		32C88DFF0371C24200C91783 /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				F767141A12201B56004C816B /* Reliance.h */,
 				32DBCF5E0370ADEE00C91783 /* Reliance_Prefix.pch */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
 		};
-		F7E2D081121AE3FE006AA06C /* Tests */ = {
+		F76713FF12201A7F004C816B /* Integration tests */ = {
+			isa = PBXGroup;
+			children = (
+				F767142D12201C8C004C816B /* Test resources */,
+				F767140512201AC6004C816B /* IntegrationTest.h */,
+				F767140612201AC6004C816B /* IntegrationTest.m */,
+			);
+			name = "Integration tests";
+			path = "../Integration tests";
+			sourceTree = "<group>";
+		};
+		F767142D12201C8C004C816B /* Test resources */ = {
+			isa = PBXGroup;
+			children = (
+				F767143112201D35004C816B /* PlaceFinder.h */,
+				F767143212201D35004C816B /* PlaceFinder.m */,
+				F767143412201D85004C816B /* DataContext.h */,
+				F767143512201D85004C816B /* DataContext.m */,
+				F767143712201D96004C816B /* SqlTransport.h */,
+				F767143812201D96004C816B /* SqlTransport.m */,
+				F767143A12201DC4004C816B /* ConfigurationStore.h */,
+				F767143B12201DC4004C816B /* ConfigurationStore.m */,
+			);
+			path = "Test resources";
+			sourceTree = "<group>";
+		};
+		F767147412202515004C816B /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				F76713FF12201A7F004C816B /* Integration tests */,
+				F7E2D081121AE3FE006AA06C /* Unit tests */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		F7E2D081121AE3FE006AA06C /* Unit tests */ = {
 			isa = PBXGroup;
 			children = (
 				F7E2D35A121B2FF0006AA06C /* Test resources */,
+				F7E2D357121B2FDF006AA06C /* TestProvider.h */,
+				F7E2D358121B2FDF006AA06C /* TestProvider.m */,
+				F7E2D31C121B243E006AA06C /* TestProtocol.h */,
 				F7E2D0AA121AF69A006AA06C /* TestServiceDescription.h */,
 				F7E2D0AB121AF69A006AA06C /* TestServiceDescription.m */,
 				F7E2D07C121AE3F6006AA06C /* TestContainer.h */,
 				F7E2D07D121AE3F6006AA06C /* TestContainer.m */,
-				F7E2D3D6121B4133006AA06C /* TestProviderDescription.h */,
-				F7E2D3D7121B4133006AA06C /* TestProviderDescription.m */,
+				F7E2D3D6121B4133006AA06C /* TestServiceProvider.h */,
+				F7E2D3D7121B4133006AA06C /* TestServiceProvider.m */,
 			);
-			name = Tests;
+			name = "Unit tests";
+			path = "../Unit tests";
 			sourceTree = "<group>";
 		};
 		F7E2D35A121B2FF0006AA06C /* Test resources */ = {
 			isa = PBXGroup;
 			children = (
-				F7E2D357121B2FDF006AA06C /* TestProvider.h */,
-				F7E2D358121B2FDF006AA06C /* TestProvider.m */,
-				F7E2D31C121B243E006AA06C /* TestProtocol.h */,
 			);
-			name = "Test resources";
+			path = "Test resources";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,7 +242,8 @@
 			files = (
 				F7E2D09F121AF5F5006AA06C /* RLContainer.h in Headers */,
 				F7E2D0D3121AF893006AA06C /* RLServiceDescription.h in Headers */,
-				F7E2D36A121B311C006AA06C /* RLProviderDescription.h in Headers */,
+				F7E2D36A121B311C006AA06C /* RLServiceProvider.h in Headers */,
+				F767141B12201B56004C816B /* Reliance.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,9 +269,9 @@
 			productReference = 8DC2EF5B0486A6940098B216 /* Reliance.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		F7E2D08E121AE53A006AA06C /* Unit tests */ = {
+		F7E2D08E121AE53A006AA06C /* Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F7E2D093121AE53A006AA06C /* Build configuration list for PBXNativeTarget "Unit tests" */;
+			buildConfigurationList = F7E2D093121AE53A006AA06C /* Build configuration list for PBXNativeTarget "Tests" */;
 			buildPhases = (
 				F7E2D08A121AE53A006AA06C /* Resources */,
 				F7E2D08B121AE53A006AA06C /* Sources */,
@@ -227,7 +282,7 @@
 			);
 			dependencies = (
 			);
-			name = "Unit tests";
+			name = Tests;
 			productName = "Unit tests";
 			productReference = F7E2D08F121AE53A006AA06C /* Unit tests.octest */;
 			productType = "com.apple.product-type.bundle";
@@ -237,6 +292,9 @@
 /* Begin PBXProject section */
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Smiling Plants HB";
+			};
 			buildConfigurationList = 1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "Reliance" */;
 			compatibilityVersion = "Xcode 3.1";
 			hasScannedForEncodings = 1;
@@ -246,7 +304,7 @@
 			projectRoot = "";
 			targets = (
 				8DC2EF4F0486A6940098B216 /* Reliance */,
-				F7E2D08E121AE53A006AA06C /* Unit tests */,
+				F7E2D08E121AE53A006AA06C /* Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -292,7 +350,7 @@
 			files = (
 				F7E2D0A0121AF5F5006AA06C /* RLContainer.m in Sources */,
 				F7E2D0D4121AF893006AA06C /* RLServiceDescription.m in Sources */,
-				F7E2D36B121B311C006AA06C /* RLProviderDescription.m in Sources */,
+				F7E2D36B121B311C006AA06C /* RLServiceProvider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,8 +363,13 @@
 				F7E2D0AC121AF69A006AA06C /* TestServiceDescription.m in Sources */,
 				F7E2D0D2121AF893006AA06C /* RLServiceDescription.m in Sources */,
 				F7E2D359121B2FDF006AA06C /* TestProvider.m in Sources */,
-				F7E2D369121B311C006AA06C /* RLProviderDescription.m in Sources */,
-				F7E2D3D8121B4133006AA06C /* TestProviderDescription.m in Sources */,
+				F7E2D369121B311C006AA06C /* RLServiceProvider.m in Sources */,
+				F7E2D3D8121B4133006AA06C /* TestServiceProvider.m in Sources */,
+				F767140712201AC6004C816B /* IntegrationTest.m in Sources */,
+				F767143312201D35004C816B /* PlaceFinder.m in Sources */,
+				F767143612201D85004C816B /* DataContext.m in Sources */,
+				F767143912201D96004C816B /* SqlTransport.m in Sources */,
+				F767143C12201DC4004C816B /* ConfigurationStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +482,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = "Unit tests";
+				RUN_CLANG_STATIC_ANALYZER = YES;
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
@@ -452,6 +516,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = "Unit tests";
+				RUN_CLANG_STATIC_ANALYZER = YES;
 				WRAPPER_EXTENSION = octest;
 				ZERO_LINK = NO;
 			};
@@ -478,7 +543,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F7E2D093121AE53A006AA06C /* Build configuration list for PBXNativeTarget "Unit tests" */ = {
+		F7E2D093121AE53A006AA06C /* Build configuration list for PBXNativeTarget "Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F7E2D091121AE53A006AA06C /* Debug */,
