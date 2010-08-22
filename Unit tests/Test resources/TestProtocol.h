@@ -29,5 +29,4 @@
 
 @protocol TestProtocol
 
-
 @end

@@ -1,5 +1,5 @@
 //
-//  TestProviderDescription.h
+//  TestServiceProvider.h
 //  Reliance
 //
 //  Created by Magnus Nordlander on 2010-08-18.

@@ -1,5 +1,5 @@
 //
-//  RLProviderDescription.m
+//  RLServiceProvider.m
 //  Reliance
 //
 //  Created by Magnus Nordlander on 2010-08-17.
@@ -26,6 +26,11 @@
 
 #import "RLServiceProvider.h"
 
+@interface RLServiceProvider (PrivateAdditions)
+-(id)cachedInstanceForResolvedDependencies:(NSArray*)resolvedDependencies;
+-(void)sanityCheckResolvedDependencies:(NSArray*)resolvedDependencies;
+-(NSInvocation*)initializerInvocationWithArgs:(NSArray*)args;
+@end
 
 @implementation RLServiceProvider
 @synthesize providerClass, initializer, dependencies;
@@ -46,35 +51,55 @@
 }
 
 
--(id)instantiateProviderWithResolvedDependencies:(NSArray*)resolvedDependencies
+-(id)cachedInstanceForResolvedDependencies:(NSArray*)resolvedDependencies
 {
-  id provider;
-  
-  if ((provider = [instanceCache objectForKey:resolvedDependencies]) != nil)
+  return [instanceCache objectForKey:resolvedDependencies];
+}
+
+-(void)sanityCheckResolvedDependencies:(NSArray*)resolvedDependencies
+{
+  if ([resolvedDependencies count] != [self.dependencies count])
   {
-    return provider;
+    @throw [NSException exceptionWithName:@"Invalid resolution" reason:@"The supplied resolved dependencies do not fulfill the dependencies of the service provider." userInfo:nil];
   }
-  
-  provider = [providerClass alloc];
-  
+}
+
+-(NSInvocation*)initializerInvocationWithArgs:(NSArray*)args
+{
   NSMethodSignature* signature = [self.providerClass instanceMethodSignatureForSelector:self.initializer];
   NSInvocation* invocation = [NSInvocation invocationWithMethodSignature:signature];
   
   [invocation setSelector:self.initializer];
-  [invocation setTarget:provider];
   
   NSInteger argumentIndex = 2;
-  for (id service in resolvedDependencies) {
+  for (id service in args) {
     [invocation setArgument:&service atIndex:argumentIndex++];
   }
   
-  [invocation invoke];
-  [invocation getReturnValue:&provider];
+  return invocation;
+}
 
-  [instanceCache setObject:provider forKey:resolvedDependencies];
+-(id)instantiateProviderWithResolvedDependencies:(NSArray*)resolvedDependencies
+{
+  id cachedProvider;
   
-   NSLog(@"%@", instanceCache);
+  if ((cachedProvider = [self cachedInstanceForResolvedDependencies:resolvedDependencies]) != nil)
+  {
+    return cachedProvider;
+  }
   
-  return [provider autorelease];
+  [self sanityCheckResolvedDependencies:resolvedDependencies];
+  
+  id providerInstance = [providerClass alloc];
+  
+  NSInvocation* invocation = [self initializerInvocationWithArgs:resolvedDependencies];
+
+  [invocation setTarget:providerInstance];
+  [invocation invoke];
+  [invocation getReturnValue:&providerInstance];
+
+  [instanceCache setObject:providerInstance forKey:resolvedDependencies];
+  
+  return [providerInstance autorelease];
 }
 @end

@@ -36,7 +36,7 @@
 -(void)addServiceWithDescription:(RLServiceDescription*)service;
 -(BOOL)hasService:(NSString*)service;
 
--(void)setProviderDescription:(RLServiceProvider*)providerDescription forService:(NSString*)service;
+-(void)setProvider:(RLServiceProvider*)provider forService:(NSString*)service;
 -(BOOL)hasProviderForService:(NSString*)service;
 -(id)service:(NSString*)service;
 @end

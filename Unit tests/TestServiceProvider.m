@@ -1,5 +1,5 @@
 //
-//  TestProviderDescription.m
+//  TestServiceProvider.m
 //  Reliance
 //
 //  Created by Magnus Nordlander on 2010-08-18.
@@ -36,6 +36,10 @@
   providerDescription.dependencies = [NSArray arrayWithObject:@"fooService"];
   
   NSObject* fooService = [[[NSObject alloc] init] autorelease];
+  
+  STAssertThrows([providerDescription instantiateProviderWithResolvedDependencies:[NSArray array]], @"Didn't throw on invalid dependency count");
+  
+  //  STAssertThrows([providerDescription instantiateProviderWithResolvedDependencies:[NSArray arrayWithObjects:fooService, @"Dummy", nil]], @"Didn't throw on invalid dependency count");
   
   id provider = [providerDescription instantiateProviderWithResolvedDependencies:[NSArray arrayWithObject:fooService]];
   STAssertTrue([provider isMemberOfClass:[TestProvider class]], @"Instantiated object is of wrong class");

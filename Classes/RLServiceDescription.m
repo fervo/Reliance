@@ -33,7 +33,20 @@
 
 -(BOOL)classIsValidProvider:(Class)provider
 {
+  if (self.requiredProtocol == nil)
+  {
+    return YES;
+  }
+  
   return [provider conformsToProtocol:self.requiredProtocol];
+}
+
+-(void)validateProvider:(RLServiceProvider*)provider
+{
+  if (![self classIsValidProvider:provider.providerClass])
+  {
+    @throw [NSException exceptionWithName:@"Invalid provider" reason:@"Provider does not conform to the required protocol for this service" userInfo:nil];
+  }
 }
 
 @end

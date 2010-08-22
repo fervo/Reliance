@@ -53,23 +53,30 @@
   
   [container addServiceWithDescription:[self fooService]];
   
-  id provider = [self fooProvider];
-  [container setProviderDescription:provider forService:@"fooService"];
-  
   id serviceDescription = [OCMockObject mockForClass:[RLServiceDescription class]];
   
   [[[serviceDescription stub] andReturn:@"testService"] serviceName];
   [[[serviceDescription stub] andReturn:@protocol(TestProtocol)] requiredProtocol];
-  [[[serviceDescription stub] andReturnValue:[NSNumber numberWithBool:YES]] classIsValidProvider:[NSObject class]]; 
   
   [container addServiceWithDescription:serviceDescription];
   
-  id providerDescription = [OCMockObject mockForClass:[RLServiceProvider class]];
+  id unconformingProvider = [OCMockObject mockForClass:[RLServiceProvider class]];
+  
+  [[[serviceDescription stub] andThrow:[NSException exceptionWithName:@"E1" reason:@"E1" userInfo:nil]] validateProvider:unconformingProvider];
 
-  [container setProviderDescription:providerDescription forService:@"testService"];
+  STAssertThrows([container setProvider:unconformingProvider forService:@"testService"], @"Container doesn't throw when attempting to set an unconforming provider");
+
+  id provider = [OCMockObject mockForClass:[RLServiceProvider class]];
+
+  [[serviceDescription stub] validateProvider:provider];
+  
+  [container setProvider:provider forService:@"testService"];
+  
+  STAssertThrows([container setProvider:provider forService:@"barService"], @"Container doesn't throw when attempting to set provider for unknown barService");
   
   STAssertTrue([container hasProviderForService:@"testService"], @"Container claims not to have a provider for testService");
-  STAssertFalse([container hasProviderForService:@"barService"], @"Container claims to have a provider for barService");
+  STAssertFalse([container hasProviderForService:@"fooService"], @"Container claims to have a provider for fooService");
+  STAssertThrows([container hasProviderForService:@"barService"], @"Container doesn't throw when asked for unknown barService");
   
   [container release];
 }
@@ -79,24 +86,28 @@
   RLContainer* container = [[RLContainer alloc] init];
   
   [container addServiceWithDescription:[self fooService]];
-  [container setProviderDescription:[self fooProvider] forService:@"fooService"];
+  
+  STAssertThrows([container service:@"fooService"], @"Container doesn't throw when asked for fooService without provider");  
+  
+  [container setProvider:[self fooProvider] forService:@"fooService"];
   
   id serviceDescription = [OCMockObject mockForClass:[RLServiceDescription class]];
   
   [[[serviceDescription stub] andReturn:@"testService"] serviceName];
   [[[serviceDescription stub] andReturn:@protocol(TestProtocol)] requiredProtocol];
-  [[[serviceDescription stub] andReturnValue:[NSNumber numberWithBool:YES]] classIsValidProvider:[NSObject class]]; 
+  [[serviceDescription stub] validateProvider:[OCMArg any]];
   
   [container addServiceWithDescription:serviceDescription];
   
-  id providerDescription = [OCMockObject mockForClass:[RLServiceProvider class]];
-  [[[providerDescription stub] andReturn:[[[TestProvider alloc] initWithFoo:nil] autorelease]] instantiateProviderWithResolvedDependencies:[OCMArg any]];
-  [[[providerDescription stub] andReturn:[NSArray array]] dependencies];
+  id provider = [OCMockObject mockForClass:[RLServiceProvider class]];
+  [[[provider stub] andReturn:[[[TestProvider alloc] initWithFoo:nil] autorelease]] instantiateProviderWithResolvedDependencies:[OCMArg any]];
+  [[[provider stub] andReturn:[NSArray array]] dependencies];
   
-  [container setProviderDescription:providerDescription forService:@"testService"];
+  [container setProvider:provider forService:@"testService"];
   
   STAssertTrue([[container service:@"fooService"] isMemberOfClass:[NSObject class]], @"fooService isn't an NSObject");
   STAssertTrue([[container service:@"testService"] isMemberOfClass:[TestProvider class]], @"testService isn't a TestProvider");
+  STAssertThrows([container hasProviderForService:@"barService"], @"Container doesn't throw when asked for unknown barService");
 
   [container release];
 }
@@ -107,19 +118,20 @@
 
   [[[serviceDescription stub] andReturn:@"fooService"] serviceName];
   [[[serviceDescription stub] andReturn:@protocol(NSObject)] requiredProtocol];
-  [[[serviceDescription stub] andReturnValue:[NSNumber numberWithBool:YES]] classIsValidProvider:[NSObject class]]; 
+  [[serviceDescription stub] validateProvider:[OCMArg any]];
+
   
   return serviceDescription;
 }
 
 -(id)fooProvider
 {
-  id providerDescription = [OCMockObject mockForClass:[RLServiceProvider class]];
+  id provider = [OCMockObject mockForClass:[RLServiceProvider class]];
     
-  [[[providerDescription stub] andReturn:[[[NSObject alloc] init] autorelease]] instantiateProviderWithResolvedDependencies:[OCMArg any]];
-  [[[providerDescription stub] andReturn:[NSArray array]] dependencies];
+  [[[provider stub] andReturn:[[[NSObject alloc] init] autorelease]] instantiateProviderWithResolvedDependencies:[OCMArg any]];
+  [[[provider stub] andReturn:[NSArray array]] dependencies];
   
-  return providerDescription;
+  return provider;
 }
 
 @end

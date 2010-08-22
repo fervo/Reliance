@@ -53,25 +53,25 @@
   placeFinderProvider.providerClass = [PlaceFinder class];
   placeFinderProvider.initializer = @selector(initWithDataContext:);
   placeFinderProvider.dependencies = [NSArray arrayWithObject:@"dataContextService"];
-  [container setProviderDescription:placeFinderProvider forService:@"placeFinderService"];
+  [container setProvider:placeFinderProvider forService:@"placeFinderService"];
   
   RLServiceProvider* dataContextProvider = [[RLServiceProvider alloc] init];
   dataContextProvider.providerClass = [DataContext class];
   dataContextProvider.initializer = @selector(initWithSqlTransport:andConfigurationStore:);
   dataContextProvider.dependencies = [NSArray arrayWithObjects:@"sqlTransportService", @"configurationStoreService", nil];
-  [container setProviderDescription:dataContextProvider forService:@"dataContextService"];
+  [container setProvider:dataContextProvider forService:@"dataContextService"];
   
   RLServiceProvider* sqlTransportProvider = [[RLServiceProvider alloc] init];
   sqlTransportProvider.providerClass = [SqlTransport class];
   sqlTransportProvider.initializer = @selector(initWithConfigurationStore:);
   sqlTransportProvider.dependencies = [NSArray arrayWithObject:@"configurationStoreService"];
-  [container setProviderDescription:sqlTransportProvider forService:@"sqlTransportService"];
+  [container setProvider:sqlTransportProvider forService:@"sqlTransportService"];
   
   RLServiceProvider* configurationStoreProvider = [[RLServiceProvider alloc] init];
   configurationStoreProvider.providerClass = [ConfigurationStore class];
   configurationStoreProvider.initializer = @selector(init);
   configurationStoreProvider.dependencies = [NSArray array];
-  [container setProviderDescription:configurationStoreProvider forService:@"configurationStoreService"];
+  [container setProvider:configurationStoreProvider forService:@"configurationStoreService"];
 
   id placeFinder = [container service:@"placeFinderService"];
   

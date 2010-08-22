@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 		8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
+		F76365E712206DCC00DB6ADC /* TestContainerDescription.plist in Resources */ = {isa = PBXBuildFile; fileRef = F76365E612206DCC00DB6ADC /* TestContainerDescription.plist */; };
+		F76365EC12206E2200DB6ADC /* TestServiceParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F76365EB12206E2200DB6ADC /* TestServiceParser.m */; };
+		F76365F312206FE600DB6ADC /* RLServiceParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F76365F212206FE600DB6ADC /* RLServiceParser.m */; };
+		F76365F412206FE600DB6ADC /* RLServiceParser.h in Headers */ = {isa = PBXBuildFile; fileRef = F76365F112206FE600DB6ADC /* RLServiceParser.h */; };
+		F76365F512206FE600DB6ADC /* RLServiceParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F76365F212206FE600DB6ADC /* RLServiceParser.m */; };
 		F767140712201AC6004C816B /* IntegrationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F767140612201AC6004C816B /* IntegrationTest.m */; };
 		F767141B12201B56004C816B /* Reliance.h in Headers */ = {isa = PBXBuildFile; fileRef = F767141A12201B56004C816B /* Reliance.h */; };
 		F767143312201D35004C816B /* PlaceFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = F767143212201D35004C816B /* PlaceFinder.m */; };
@@ -28,6 +33,7 @@
 		F7E2D36A121B311C006AA06C /* RLServiceProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = F7E2D367121B311C006AA06C /* RLServiceProvider.h */; };
 		F7E2D36B121B311C006AA06C /* RLServiceProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E2D368121B311C006AA06C /* RLServiceProvider.m */; };
 		F7E2D3D8121B4133006AA06C /* TestServiceProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E2D3D7121B4133006AA06C /* TestServiceProvider.m */; };
+		F7F55B1D12213952008CF5CA /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F55B1C12213952008CF5CA /* OCMock.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +45,10 @@
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DC2EF5B0486A6940098B216 /* Reliance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Reliance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2F7E79907B2D74100F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		F76365E612206DCC00DB6ADC /* TestContainerDescription.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TestContainerDescription.plist; sourceTree = "<group>"; };
+		F76365EB12206E2200DB6ADC /* TestServiceParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestServiceParser.m; sourceTree = "<group>"; };
+		F76365F112206FE600DB6ADC /* RLServiceParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLServiceParser.h; sourceTree = "<group>"; };
+		F76365F212206FE600DB6ADC /* RLServiceParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLServiceParser.m; sourceTree = "<group>"; };
 		F767140512201AC6004C816B /* IntegrationTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntegrationTest.h; sourceTree = "<group>"; };
 		F767140612201AC6004C816B /* IntegrationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntegrationTest.m; sourceTree = "<group>"; };
 		F767141A12201B56004C816B /* Reliance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reliance.h; sourceTree = "<group>"; };
@@ -51,24 +61,24 @@
 		F767143A12201DC4004C816B /* ConfigurationStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigurationStore.h; sourceTree = "<group>"; };
 		F767143B12201DC4004C816B /* ConfigurationStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigurationStore.m; sourceTree = "<group>"; };
 		F7E2D07C121AE3F6006AA06C /* TestContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestContainer.h; sourceTree = "<group>"; };
-		F7E2D07D121AE3F6006AA06C /* TestContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestContainer.m; sourceTree = "<group>"; };
+		F7E2D07D121AE3F6006AA06C /* TestContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TestContainer.m; sourceTree = "<group>"; };
 		F7E2D08F121AE53A006AA06C /* Unit tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unit tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7E2D090121AE53A006AA06C /* Unit tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Unit tests-Info.plist"; sourceTree = "<group>"; };
 		F7E2D09D121AF5F5006AA06C /* RLContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLContainer.h; sourceTree = "<group>"; };
-		F7E2D09E121AF5F5006AA06C /* RLContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLContainer.m; sourceTree = "<group>"; };
+		F7E2D09E121AF5F5006AA06C /* RLContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = RLContainer.m; sourceTree = "<group>"; };
 		F7E2D0AA121AF69A006AA06C /* TestServiceDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestServiceDescription.h; sourceTree = "<group>"; };
 		F7E2D0AB121AF69A006AA06C /* TestServiceDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestServiceDescription.m; sourceTree = "<group>"; };
 		F7E2D0D0121AF893006AA06C /* RLServiceDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLServiceDescription.h; sourceTree = "<group>"; };
 		F7E2D0D1121AF893006AA06C /* RLServiceDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLServiceDescription.m; sourceTree = "<group>"; };
-		F7E2D280121AFFA2006AA06C /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCMock.framework; sourceTree = "<group>"; };
-		F7E2D31C121B243E006AA06C /* TestProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestProtocol.h; path = "Test resources/TestProtocol.h"; sourceTree = "<group>"; };
-		F7E2D357121B2FDF006AA06C /* TestProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestProvider.h; path = "Test resources/TestProvider.h"; sourceTree = "<group>"; };
-		F7E2D358121B2FDF006AA06C /* TestProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestProvider.m; path = "Test resources/TestProvider.m"; sourceTree = "<group>"; };
-		F7E2D367121B311C006AA06C /* RLServiceProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLServiceProvider.h; sourceTree = "<group>"; };
-		F7E2D368121B311C006AA06C /* RLServiceProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLServiceProvider.m; sourceTree = "<group>"; };
-		F7E2D3D6121B4133006AA06C /* TestServiceProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestServiceProvider.h; sourceTree = "<group>"; };
+		F7E2D31C121B243E006AA06C /* TestProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestProtocol.h; sourceTree = "<group>"; };
+		F7E2D357121B2FDF006AA06C /* TestProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestProvider.h; sourceTree = "<group>"; };
+		F7E2D358121B2FDF006AA06C /* TestProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestProvider.m; sourceTree = "<group>"; };
+		F7E2D367121B311C006AA06C /* RLServiceProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = RLServiceProvider.h; sourceTree = "<group>"; };
+		F7E2D368121B311C006AA06C /* RLServiceProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = RLServiceProvider.m; sourceTree = "<group>"; };
+		F7E2D3D6121B4133006AA06C /* TestServiceProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = TestServiceProvider.h; sourceTree = "<group>"; };
 		F7E2D3D7121B4133006AA06C /* TestServiceProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestServiceProvider.m; sourceTree = "<group>"; };
 		F7E2D3E4121B44DA006AA06C /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		F7F55B1C12213952008CF5CA /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMock.framework; path = /Library/Frameworks/OCMock.framework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7F55B1D12213952008CF5CA /* OCMock.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,6 +152,8 @@
 				F7E2D0D1121AF893006AA06C /* RLServiceDescription.m */,
 				F7E2D367121B311C006AA06C /* RLServiceProvider.h */,
 				F7E2D368121B311C006AA06C /* RLServiceProvider.m */,
+				F76365F112206FE600DB6ADC /* RLServiceParser.h */,
+				F76365F212206FE600DB6ADC /* RLServiceParser.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -156,7 +169,7 @@
 		1058C7B2FEA5585E11CA2CBB /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F7E2D280121AFFA2006AA06C /* OCMock.framework */,
+				F7F55B1C12213952008CF5CA /* OCMock.framework */,
 				0867D6A5FE840307C02AAC07 /* AppKit.framework */,
 				D2F7E79907B2D74100F64583 /* CoreData.framework */,
 				0867D69BFE84028FC02AAC07 /* Foundation.framework */,
@@ -212,15 +225,13 @@
 			isa = PBXGroup;
 			children = (
 				F7E2D35A121B2FF0006AA06C /* Test resources */,
-				F7E2D357121B2FDF006AA06C /* TestProvider.h */,
-				F7E2D358121B2FDF006AA06C /* TestProvider.m */,
-				F7E2D31C121B243E006AA06C /* TestProtocol.h */,
 				F7E2D0AA121AF69A006AA06C /* TestServiceDescription.h */,
 				F7E2D0AB121AF69A006AA06C /* TestServiceDescription.m */,
 				F7E2D07C121AE3F6006AA06C /* TestContainer.h */,
 				F7E2D07D121AE3F6006AA06C /* TestContainer.m */,
 				F7E2D3D6121B4133006AA06C /* TestServiceProvider.h */,
 				F7E2D3D7121B4133006AA06C /* TestServiceProvider.m */,
+				F76365EB12206E2200DB6ADC /* TestServiceParser.m */,
 			);
 			name = "Unit tests";
 			path = "../Unit tests";
@@ -229,6 +240,10 @@
 		F7E2D35A121B2FF0006AA06C /* Test resources */ = {
 			isa = PBXGroup;
 			children = (
+				F7E2D357121B2FDF006AA06C /* TestProvider.h */,
+				F7E2D358121B2FDF006AA06C /* TestProvider.m */,
+				F7E2D31C121B243E006AA06C /* TestProtocol.h */,
+				F76365E612206DCC00DB6ADC /* TestContainerDescription.plist */,
 			);
 			path = "Test resources";
 			sourceTree = "<group>";
@@ -244,6 +259,7 @@
 				F7E2D0D3121AF893006AA06C /* RLServiceDescription.h in Headers */,
 				F7E2D36A121B311C006AA06C /* RLServiceProvider.h in Headers */,
 				F767141B12201B56004C816B /* Reliance.h in Headers */,
+				F76365F412206FE600DB6ADC /* RLServiceParser.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,7 +313,11 @@
 			};
 			buildConfigurationList = 1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "Reliance" */;
 			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
 			mainGroup = 0867D691FE84028FC02AAC07 /* Reliance */;
 			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
 			projectDirPath = "";
@@ -322,6 +342,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F76365E712206DCC00DB6ADC /* TestContainerDescription.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,6 +372,7 @@
 				F7E2D0A0121AF5F5006AA06C /* RLContainer.m in Sources */,
 				F7E2D0D4121AF893006AA06C /* RLServiceDescription.m in Sources */,
 				F7E2D36B121B311C006AA06C /* RLServiceProvider.m in Sources */,
+				F76365F512206FE600DB6ADC /* RLServiceParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,6 +392,8 @@
 				F767143612201D85004C816B /* DataContext.m in Sources */,
 				F767143912201D96004C816B /* SqlTransport.m in Sources */,
 				F767143C12201DC4004C816B /* ConfigurationStore.m in Sources */,
+				F76365EC12206E2200DB6ADC /* TestServiceParser.m in Sources */,
+				F76365F312206FE600DB6ADC /* RLServiceParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,7 +479,7 @@
 		F7E2D091121AE53A006AA06C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				BUNDLE_LOADER = "";
 				COPY_PHASE_STRIP = NO;
@@ -490,7 +514,7 @@
 		F7E2D092121AE53A006AA06C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				BUNDLE_LOADER = "";
 				COPY_PHASE_STRIP = YES;

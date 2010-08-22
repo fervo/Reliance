@@ -1,5 +1,5 @@
 //
-//  RLProviderDescription.h
+//  RLServiceProvider.h
 //  Reliance
 //
 //  Created by Magnus Nordlander on 2010-08-17.

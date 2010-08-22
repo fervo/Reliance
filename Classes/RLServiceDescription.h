@@ -25,7 +25,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-
+#import "RLServiceProvider.h"
 
 @interface RLServiceDescription : NSObject {
 @private
@@ -37,4 +37,5 @@
 @property (retain, nonatomic) Protocol* requiredProtocol;
 
 -(BOOL)classIsValidProvider:(Class)provider;
+-(void)validateProvider:(RLServiceProvider*)provider;
 @end

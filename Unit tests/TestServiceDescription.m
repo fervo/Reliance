@@ -39,6 +39,10 @@
   STAssertTrue([serviceDescription classIsValidProvider:[NSObject class]], @"Protocol checking false negative");
   STAssertFalse([serviceDescription classIsValidProvider:Nil], @"Protocol checking false positive");
   
+  serviceDescription.requiredProtocol = nil;
+  STAssertTrue([serviceDescription classIsValidProvider:[NSObject class]], @"Protocol checking false negative");  
+  STAssertTrue([serviceDescription classIsValidProvider:Nil], @"Protocol checking false negative");
+  
   [serviceDescription release];
 }
 

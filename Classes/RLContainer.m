@@ -27,6 +27,7 @@
 #import "RLContainer.h"
 
 @interface RLContainer (PrivateAdditions)
+- (void)checkIfServiceExists:(NSString*)service;
 - (NSArray*)resolveDependencies:(NSArray*)dependencies;
 @end
 
@@ -60,9 +61,49 @@
   [serviceDescriptions setObject:serviceDescription forKey:[serviceDescription serviceName]];
 }
 
--(void)setProviderDescription:(RLServiceProvider*)providerDescription forService:(NSString*)service
+-(void)setProvider:(RLServiceProvider*)provider forService:(NSString*)service
 {
-  [serviceProviders setObject:providerDescription forKey:service];
+  [self checkIfServiceExists:service];
+  
+  [[serviceDescriptions valueForKey:service] validateProvider:provider];
+  
+  [serviceProviders setObject:provider forKey:service];
+}
+
+-(id)service:(NSString*)service
+{ 
+  [self checkIfServiceExists:service];
+  
+  RLServiceProvider* provider = [serviceProviders objectForKey:service];
+  
+  if (provider == nil)
+  {
+    @throw [NSException exceptionWithName:@"No provider"  
+                                   reason:@"Requested service doesn't have a provider" 
+                                 userInfo:nil];
+  }
+  
+  return [provider instantiateProviderWithResolvedDependencies:[self resolveDependencies:provider.dependencies]];
+}
+
+-(BOOL)hasProviderForService:(NSString *)service
+{
+  [self checkIfServiceExists:service];
+  
+  return ([serviceProviders objectForKey:service] != nil);
+}
+
+#pragma mark -
+#pragma mark PrivateAdditions
+
+- (void)checkIfServiceExists:(NSString*)service
+{
+  if (![self hasService:service])
+  {
+    @throw [NSException exceptionWithName:@"Unknown service" 
+                                   reason:@"Requested service is not registered with this container" 
+                                 userInfo:nil];
+  }
 }
 
 -(NSArray*)resolveDependencies:(NSArray *)dependencies
@@ -75,16 +116,5 @@
   return resolvedDependencies;
 }
 
--(id)service:(NSString*)service
-{
-  RLServiceProvider* providerDescription = [serviceProviders objectForKey:service];
-  
-  return [providerDescription instantiateProviderWithResolvedDependencies:[self resolveDependencies:providerDescription.dependencies]];
-}
-
--(BOOL)hasProviderForService:(NSString *)service
-{
-  return ([serviceProviders objectForKey:service] != nil);
-}
 
 @end
