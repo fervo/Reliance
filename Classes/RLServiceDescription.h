@@ -24,8 +24,8 @@
 //  THE SOFTWARE.
 //
 
-#import <Cocoa/Cocoa.h>
-#import "RLServiceProvider.h"
+#import <Foundation/Foundation.h>
+#import <Reliance/RLServiceProvider.h>
 
 @interface RLServiceDescription : NSObject {
 @private

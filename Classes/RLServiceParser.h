@@ -6,9 +6,9 @@
 //  Copyright 2010 Smiling Plants HB. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
-#import "RLContainer.h"
-#import "RLServiceDescription.h"
+#import <Foundation/Foundation.h>
+#import <Reliance/RLContainer.h>
+#import <Reliance/RLServiceDescription.h>
 
 @interface RLServiceParser : NSObject {
   @private

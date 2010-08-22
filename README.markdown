@@ -6,9 +6,7 @@ A Dependency injection container for Objective-C.
 
 Most stuff sort of works. However, as you can see from the tests, there's a lot of fault injection still to be done.
 
-Even if you build it as a framework, you won't get anything usable as it, so that's something that remains as well.
-
-I'm also not really satisfied with all the class names and method names.
+I'm also not really satisfied with all the class names and method names, so that's likely to change.
 
 Because of this, you can currently consider this software to be of **Alpha** quality.
 

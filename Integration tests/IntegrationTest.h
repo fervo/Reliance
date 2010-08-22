@@ -25,7 +25,7 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
-#import "Reliance.h"
+#import <Reliance/Reliance.h>
 #import "PlaceFinder.h"
 #import "DataContext.h"
 #import "SqlTransport.h"

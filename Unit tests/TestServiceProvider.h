@@ -25,7 +25,7 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
-#import "RLServiceProvider.h"
+#import <Reliance/RLServiceProvider.h>
 #import "TestProvider.h"
 
 @interface TestServiceProvider : SenTestCase {

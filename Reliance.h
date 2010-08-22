@@ -24,7 +24,7 @@
 //  THE SOFTWARE.
 //
 
-#import "RLContainer.h"
-#import "RLServiceDescription.h"
-#import "RLServiceProvider.h"
-#import "RLServiceParser.h"
+#import <Reliance/RLContainer.h>
+#import <Reliance/RLServiceDescription.h>
+#import <Reliance/RLServiceProvider.h>
+#import <Reliance/RLServiceParser.h>

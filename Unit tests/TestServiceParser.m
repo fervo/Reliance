@@ -8,9 +8,9 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 #import <OCMock/OCMock.h>
-#import "RLServiceParser.h"
-#import "RLServiceProvider.h"
-#import "RLContainer.h"
+#import <Reliance/RLServiceParser.h>
+#import <Reliance/RLServiceProvider.h>
+#import <Reliance/RLContainer.h>
 #import "TestProtocol.h"
 #import "TestProvider.h"
 
