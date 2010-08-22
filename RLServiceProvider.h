@@ -1,5 +1,5 @@
 //
-//  RLServiceDescription.h
+//  RLServiceProvider.h
 //  Reliance
 //
 //  Created by Magnus Nordlander on 2010-08-17.
@@ -25,17 +25,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Reliance/RLServiceProvider.h>
 
-@interface RLServiceDescription : NSObject {
-@private
-  NSString* serviceName;
-  Protocol* requiredProtocol;
-}
+@protocol RLServiceProvider
 
-@property (retain, nonatomic) NSString* serviceName;
-@property (retain, nonatomic) Protocol* requiredProtocol;
+@property (assign, nonatomic) Class providerClass;
 
--(BOOL)classIsValidProvider:(Class)provider;
--(void)validateProvider:(id <RLServiceProvider>)provider;
+-(id)instantiateProviderWithResolvedDependencies:(NSArray*)resolvedDependencies;
+
 @end

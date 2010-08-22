@@ -1,8 +1,8 @@
 //
-//  RLServiceProvider.m
+//  RLConvenienceConstructedServiceProvider.m
 //  Reliance
 //
-//  Created by Magnus Nordlander on 2010-08-17.
+//  Created by Magnus Nordlander on 2010-08-22.
 //  Copyright (c) 2010 Smiling Plants HB
 //  
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,57 +24,19 @@
 //  THE SOFTWARE.
 //
 
-#import "RLServiceProvider.h"
+#import "RLConvenienceConstructedServiceProvider.h"
 
-@interface RLServiceProvider (PrivateAdditions)
--(id)cachedInstanceForResolvedDependencies:(NSArray*)resolvedDependencies;
--(void)sanityCheckResolvedDependencies:(NSArray*)resolvedDependencies;
--(NSInvocation*)initializerInvocationWithArgs:(NSArray*)args;
-@end
+#import "RLAbstractServiceProvider+PrivateAdditions.h"
 
-@implementation RLServiceProvider
-@synthesize providerClass, initializer, dependencies;
+@implementation RLConvenienceConstructedServiceProvider
+@synthesize convenienceConstructor;
 
-- (id) init
+-(NSInvocation*)factoryInvocation
 {
-  self = [super init];
-  if (self != nil) {
-    instanceCache = [[NSMutableDictionary alloc] initWithCapacity:5];
-  }
-  return self;
-}
-
-- (void) dealloc
-{
-  [instanceCache release];
-  [super dealloc];
-}
-
-
--(id)cachedInstanceForResolvedDependencies:(NSArray*)resolvedDependencies
-{
-  return [instanceCache objectForKey:resolvedDependencies];
-}
-
--(void)sanityCheckResolvedDependencies:(NSArray*)resolvedDependencies
-{
-  if ([resolvedDependencies count] != [self.dependencies count])
-  {
-    @throw [NSException exceptionWithName:@"Invalid resolution" reason:@"The supplied resolved dependencies do not fulfill the dependencies of the service provider." userInfo:nil];
-  }
-}
-
--(NSInvocation*)initializerInvocationWithArgs:(NSArray*)args
-{
-  NSMethodSignature* signature = [self.providerClass instanceMethodSignatureForSelector:self.initializer];
+  NSMethodSignature* signature = [self.providerClass methodSignatureForSelector:self.convenienceConstructor];
   NSInvocation* invocation = [NSInvocation invocationWithMethodSignature:signature];
   
-  [invocation setSelector:self.initializer];
-  
-  NSInteger argumentIndex = 2;
-  for (id service in args) {
-    [invocation setArgument:&service atIndex:argumentIndex++];
-  }
+  [invocation setSelector:self.convenienceConstructor];
   
   return invocation;
 }
@@ -90,16 +52,18 @@
   
   [self sanityCheckResolvedDependencies:resolvedDependencies];
   
-  id providerInstance = [providerClass alloc];
+  id providerInstance;
   
-  NSInvocation* invocation = [self initializerInvocationWithArgs:resolvedDependencies];
-
-  [invocation setTarget:providerInstance];
+  NSInvocation* invocation = [self factoryInvocation];
+  
+  [self setArgs:resolvedDependencies onInvocation:invocation];
+  
+  [invocation setTarget:[providerClass class]];
   [invocation invoke];
   [invocation getReturnValue:&providerInstance];
-
+  
   [instanceCache setObject:providerInstance forKey:resolvedDependencies];
   
-  return [providerInstance autorelease];
+  return providerInstance;
 }
 @end

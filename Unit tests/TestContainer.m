@@ -60,13 +60,13 @@
   
   [container addServiceWithDescription:serviceDescription];
   
-  id unconformingProvider = [OCMockObject mockForClass:[RLServiceProvider class]];
+  id unconformingProvider = [OCMockObject mockForClass:[RLInitializedServiceProvider class]];
   
   [[[serviceDescription stub] andThrow:[NSException exceptionWithName:@"E1" reason:@"E1" userInfo:nil]] validateProvider:unconformingProvider];
 
   STAssertThrows([container setProvider:unconformingProvider forService:@"testService"], @"Container doesn't throw when attempting to set an unconforming provider");
 
-  id provider = [OCMockObject mockForClass:[RLServiceProvider class]];
+  id provider = [OCMockObject mockForClass:[RLInitializedServiceProvider class]];
 
   [[serviceDescription stub] validateProvider:provider];
   
@@ -99,7 +99,7 @@
   
   [container addServiceWithDescription:serviceDescription];
   
-  id provider = [OCMockObject mockForClass:[RLServiceProvider class]];
+  id provider = [OCMockObject mockForClass:[RLInitializedServiceProvider class]];
   [[[provider stub] andReturn:[[[TestProvider alloc] initWithFoo:nil] autorelease]] instantiateProviderWithResolvedDependencies:[OCMArg any]];
   [[[provider stub] andReturn:[NSArray array]] dependencies];
   
@@ -126,7 +126,7 @@
 
 -(id)fooProvider
 {
-  id provider = [OCMockObject mockForClass:[RLServiceProvider class]];
+  id provider = [OCMockObject mockForClass:[RLInitializedServiceProvider class]];
     
   [[[provider stub] andReturn:[[[NSObject alloc] init] autorelease]] instantiateProviderWithResolvedDependencies:[OCMArg any]];
   [[[provider stub] andReturn:[NSArray array]] dependencies];

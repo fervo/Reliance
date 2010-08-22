@@ -41,7 +41,7 @@
   return [provider conformsToProtocol:self.requiredProtocol];
 }
 
--(void)validateProvider:(RLServiceProvider*)provider
+-(void)validateProvider:(id <RLServiceProvider>)provider
 {
   if (![self classIsValidProvider:provider.providerClass])
   {

@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <Reliance/RLContainer.h>
-#import <Reliance/RLServiceDescription.h>
+#import <Reliance/RLConvenienceConstructedServiceProvider.h>
+#import <Reliance/RLInitializedServiceProvider.h>
 
 @interface RLServiceParser : NSObject {
   @private

@@ -38,6 +38,12 @@
   return self;
 }
 
++(id)providerWithFoo:(id)foo
+{
+  id provider = [[self alloc] initWithFoo:foo];
+  return [provider autorelease];
+}
+
 - (id) init
 {
   @throw([NSException exceptionWithName:@"InvalidInitialization" reason:@"TestProvider cannot be initialized by -init" userInfo:nil]);

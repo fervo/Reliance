@@ -9,7 +9,7 @@
 #import <SenTestingKit/SenTestingKit.h>
 #import <OCMock/OCMock.h>
 #import <Reliance/RLServiceParser.h>
-#import <Reliance/RLServiceProvider.h>
+#import <Reliance/RLInitializedServiceProvider.h>
 #import <Reliance/RLContainer.h>
 #import "TestProtocol.h"
 #import "TestProvider.h"
@@ -34,10 +34,26 @@
   [[container expect] addServiceWithDescription:[OCMArg checkWithBlock:^(id serviceDescription) {
     return (BOOL)([[serviceDescription serviceName] isEqualToString:@"fooService"] && ([serviceDescription requiredProtocol] == nil));
   }]];
+  [[container expect] addServiceWithDescription:[OCMArg checkWithBlock:^(id serviceDescription) {
+    return (BOOL)([[serviceDescription serviceName] isEqualToString:@"barService"] && ([serviceDescription requiredProtocol] == nil));
+  }]];
   
   [[container expect] setProvider:[OCMArg checkWithBlock:^(id provider) {
+    if (![provider respondsToSelector:@selector(initializer)])
+    {
+      return NO;
+    }
+    
     return (BOOL)(([provider providerClass] == [TestProvider class]) && ([provider initializer] == @selector(initWithFooService:)) && [[provider dependencies] isEqual:[NSArray arrayWithObject:@"fooService"]]);
   }] forService:@"testService"];
+  [[container expect] setProvider:[OCMArg checkWithBlock:^(id provider) {
+    if (![provider respondsToSelector:@selector(convenienceConstructor)])
+    {
+      return NO;
+    }
+
+    return (BOOL)(([provider providerClass] == [TestProvider class]) && ([provider convenienceConstructor] == @selector(provider)) && [[provider dependencies] isEqual:[NSArray array]]);
+  }] forService:@"fooService"];
   
   [parser parseIntoContainer:container];
   

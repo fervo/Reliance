@@ -1,8 +1,8 @@
 //
-//  RLServiceDescription.h
+//  RLAbstractServiceProvider+PrivateAdditions.h
 //  Reliance
 //
-//  Created by Magnus Nordlander on 2010-08-17.
+//  Created by Magnus Nordlander on 2010-08-22.
 //  Copyright (c) 2010 Smiling Plants HB
 //  
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,18 +24,9 @@
 //  THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
-#import <Reliance/RLServiceProvider.h>
-
-@interface RLServiceDescription : NSObject {
-@private
-  NSString* serviceName;
-  Protocol* requiredProtocol;
-}
-
-@property (retain, nonatomic) NSString* serviceName;
-@property (retain, nonatomic) Protocol* requiredProtocol;
-
--(BOOL)classIsValidProvider:(Class)provider;
--(void)validateProvider:(id <RLServiceProvider>)provider;
+@interface RLAbstractServiceProvider (PrivateAdditions)
+-(id)cachedInstanceForResolvedDependencies:(NSArray*)resolvedDependencies;
+-(void)sanityCheckResolvedDependencies:(NSArray*)resolvedDependencies;
+-(NSInvocation*)factoryInvocation;
+-(void)setArgs:(NSArray*)args onInvocation:(NSInvocation*)invocation;
 @end

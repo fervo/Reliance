@@ -1,8 +1,8 @@
 //
-//  RLServiceDescription.h
+//  RLConvenienceConstructedServiceProvider.h
 //  Reliance
 //
-//  Created by Magnus Nordlander on 2010-08-17.
+//  Created by Magnus Nordlander on 2010-08-22.
 //  Copyright (c) 2010 Smiling Plants HB
 //  
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,17 +25,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Reliance/RLServiceProvider.h>
+#import <Reliance/RLAbstractServiceProvider.h>
 
-@interface RLServiceDescription : NSObject {
-@private
-  NSString* serviceName;
-  Protocol* requiredProtocol;
+@interface RLConvenienceConstructedServiceProvider : RLAbstractServiceProvider {
+@private 
+  SEL convenienceConstructor;
 }
+@property (assign, nonatomic) SEL convenienceConstructor;
 
-@property (retain, nonatomic) NSString* serviceName;
-@property (retain, nonatomic) Protocol* requiredProtocol;
-
--(BOOL)classIsValidProvider:(Class)provider;
--(void)validateProvider:(id <RLServiceProvider>)provider;
 @end

@@ -30,5 +30,6 @@
 @interface TestProvider : NSObject {
 
 }
++(id)providerWithFoo:(id)foo;
 -(id)initWithFoo:(id)foo;
 @end

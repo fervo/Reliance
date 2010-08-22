@@ -1,5 +1,5 @@
 //
-//  SqlTransport.h
+//  RLInitializedServiceProvider.m
 //  Reliance
 //
 //  Created by Magnus Nordlander on 2010-08-17.
@@ -24,15 +24,46 @@
 //  THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
-#import "ConfigurationStore.h"
+#import "RLInitializedServiceProvider.h"
 
-@interface SqlTransport : NSObject {
+#import "RLAbstractServiceProvider+PrivateAdditions.h"
 
+@implementation RLInitializedServiceProvider
+@synthesize initializer;
+
+-(NSInvocation*)factoryInvocation
+{
+  NSMethodSignature* signature = [self.providerClass instanceMethodSignatureForSelector:self.initializer];
+  NSInvocation* invocation = [NSInvocation invocationWithMethodSignature:signature];
+  
+  [invocation setSelector:self.initializer];
+  
+  return invocation;
 }
 
-+(id)transportWithConfigurationStore:(ConfigurationStore*)configurationStore;
+-(id)instantiateProviderWithResolvedDependencies:(NSArray*)resolvedDependencies
+{
+  id cachedProvider;
+  
+  if ((cachedProvider = [self cachedInstanceForResolvedDependencies:resolvedDependencies]) != nil)
+  {
+    return cachedProvider;
+  }
+  
+  [self sanityCheckResolvedDependencies:resolvedDependencies];
+  
+  id providerInstance = [providerClass alloc];
+  
+  NSInvocation* invocation = [self factoryInvocation];
+  
+  [self setArgs:resolvedDependencies onInvocation:invocation];
 
--(id)initWithConfigurationStore:(ConfigurationStore*)configurationStore;
+  [invocation setTarget:providerInstance];
+  [invocation invoke];
+  [invocation getReturnValue:&providerInstance];
 
+  [instanceCache setObject:providerInstance forKey:resolvedDependencies];
+  
+  return [providerInstance autorelease];
+}
 @end

@@ -61,7 +61,7 @@
   [serviceDescriptions setObject:serviceDescription forKey:[serviceDescription serviceName]];
 }
 
--(void)setProvider:(RLServiceProvider*)provider forService:(NSString*)service
+-(void)setProvider:(id <RLServiceProvider>)provider forService:(NSString*)service
 {
   [self checkIfServiceExists:service];
   
@@ -74,7 +74,7 @@
 { 
   [self checkIfServiceExists:service];
   
-  RLServiceProvider* provider = [serviceProviders objectForKey:service];
+  RLInitializedServiceProvider* provider = [serviceProviders objectForKey:service];
   
   if (provider == nil)
   {

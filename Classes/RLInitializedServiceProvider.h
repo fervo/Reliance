@@ -1,5 +1,5 @@
 //
-//  RLServiceProvider.h
+//  RLInitializedServiceProvider.h
 //  Reliance
 //
 //  Created by Magnus Nordlander on 2010-08-17.
@@ -25,19 +25,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Reliance/RLAbstractServiceProvider.h>
 
-
-@interface RLServiceProvider : NSObject {
+@interface RLInitializedServiceProvider : RLAbstractServiceProvider {
 @private 
-  Class providerClass;
   SEL initializer;
-  NSArray* dependencies;
-  
-  NSMutableDictionary* instanceCache;
 }
-@property (assign, nonatomic) Class providerClass;
 @property (assign, nonatomic) SEL initializer;
-@property (retain, nonatomic) NSArray* dependencies;
 
--(id)instantiateProviderWithResolvedDependencies:(NSArray*)resolvedDependencies;
 @end

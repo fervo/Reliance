@@ -29,6 +29,13 @@
 
 @implementation SqlTransport
 
++(id)transportWithConfigurationStore:(ConfigurationStore*)configurationStore
+{
+  id transport = [[self alloc] initWithConfigurationStore:configurationStore];
+  
+  return [transport autorelease];
+}
+
 -(id)initWithConfigurationStore:(ConfigurationStore*)configurationStore
 {
   NSAssert(configurationStore != nil, @"Configuration store is nil");

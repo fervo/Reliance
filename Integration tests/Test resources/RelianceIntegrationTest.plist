@@ -39,8 +39,8 @@
 		<dict>
 			<key>providerClass</key>
 			<string>SqlTransport</string>
-			<key>initializer</key>
-			<string>initWithConfigurationStore:</string>
+			<key>convenienceConstructor</key>
+			<string>transportWithConfigurationStore:</string>
 			<key>dependencies</key>
 			<array>
 				<string>configurationStoreService</string>

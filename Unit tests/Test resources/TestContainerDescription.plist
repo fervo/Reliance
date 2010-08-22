@@ -14,6 +14,10 @@
 			<key>serviceName</key>
 			<string>fooService</string>
 		</dict>
+		<dict>
+			<key>serviceName</key>
+			<string>barService</string>
+		</dict>
 	</array>
 	<key>providers</key>
 	<dict>
@@ -27,6 +31,15 @@
 			<array>
 				<string>fooService</string>
 			</array>
+		</dict>
+		<key>fooService</key>
+		<dict>
+			<key>providerClass</key>
+			<string>TestProvider</string>
+			<key>convenienceConstructor</key>
+			<string>provider</string>
+			<key>dependencies</key>
+			<array/>
 		</dict>
 	</dict>
 </dict>

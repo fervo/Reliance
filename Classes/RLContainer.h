@@ -26,7 +26,7 @@
 
 #import <Foundation/Foundation.h>
 #import <Reliance/RLServiceDescription.h>
-#import <Reliance/RLServiceProvider.h>
+#import <Reliance/RLInitializedServiceProvider.h>
 
 @interface RLContainer : NSObject {
   @private
@@ -36,7 +36,7 @@
 -(void)addServiceWithDescription:(RLServiceDescription*)service;
 -(BOOL)hasService:(NSString*)service;
 
--(void)setProvider:(RLServiceProvider*)provider forService:(NSString*)service;
+-(void)setProvider:(id <RLServiceProvider>)provider forService:(NSString*)service;
 -(BOOL)hasProviderForService:(NSString*)service;
 -(id)service:(NSString*)service;
 @end

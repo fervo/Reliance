@@ -1,5 +1,5 @@
 //
-//  TestServiceProvider.m
+//  TestServiceProvider.h
 //  Reliance
 //
 //  Created by Magnus Nordlander on 2010-08-18.
@@ -24,13 +24,21 @@
 //  THE SOFTWARE.
 //
 
-#import "TestServiceProvider.h"
+#import <SenTestingKit/SenTestingKit.h>
+#import <Reliance/RLInitializedServiceProvider.h>
+#import <Reliance/RLConvenienceConstructedServiceProvider.h>
+#import "TestProvider.h"
 
+@interface TestServiceProvider : SenTestCase {
+  
+}
+
+@end
 
 @implementation TestServiceProvider
 -(void)testInstantiate
 {
-  RLServiceProvider* providerDescription = [[RLServiceProvider alloc] init];
+  RLInitializedServiceProvider* providerDescription = [[RLInitializedServiceProvider alloc] init];
   providerDescription.providerClass = [TestProvider class];
   providerDescription.initializer = @selector(initWithFoo:);
   providerDescription.dependencies = [NSArray arrayWithObject:@"fooService"];
@@ -48,9 +56,27 @@
   [providerDescription release];
 }
 
+-(void)testInstantiateFromConvenienceConstructor
+{
+  RLConvenienceConstructedServiceProvider* providerDescription = [[RLConvenienceConstructedServiceProvider alloc] init];
+  providerDescription.providerClass = [TestProvider class];
+  providerDescription.convenienceConstructor = @selector(providerWithFoo:);
+  providerDescription.dependencies = [NSArray arrayWithObject:@"fooService"];
+  
+  NSObject* fooService = [[[NSObject alloc] init] autorelease];
+  
+  STAssertThrows([providerDescription instantiateProviderWithResolvedDependencies:[NSArray array]], @"Didn't throw on invalid dependency count");
+  
+  id provider = [providerDescription instantiateProviderWithResolvedDependencies:[NSArray arrayWithObject:fooService]];
+  STAssertTrue([provider isMemberOfClass:[TestProvider class]], @"Instantiated object is of wrong class");
+  STAssertFalse([provider isMemberOfClass:[NSArray class]], @"Instantiated object is of wrong class");
+  
+  [providerDescription release];
+}
+
 -(void)testInstanceCache
 { 
-  RLServiceProvider* providerDescription = [[RLServiceProvider alloc] init];
+  RLInitializedServiceProvider* providerDescription = [[RLInitializedServiceProvider alloc] init];
   providerDescription.providerClass = [TestProvider class];
   providerDescription.initializer = @selector(initWithFoo:);
   providerDescription.dependencies = [NSArray arrayWithObject:@"fooService"];

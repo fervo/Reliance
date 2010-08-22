@@ -27,10 +27,18 @@
 		F7E2D0D3121AF893006AA06C /* RLServiceDescription.h in Headers */ = {isa = PBXBuildFile; fileRef = F7E2D0D0121AF893006AA06C /* RLServiceDescription.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F7E2D0D4121AF893006AA06C /* RLServiceDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E2D0D1121AF893006AA06C /* RLServiceDescription.m */; };
 		F7E2D359121B2FDF006AA06C /* TestProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E2D358121B2FDF006AA06C /* TestProvider.m */; };
-		F7E2D369121B311C006AA06C /* RLServiceProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E2D368121B311C006AA06C /* RLServiceProvider.m */; };
-		F7E2D36A121B311C006AA06C /* RLServiceProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = F7E2D367121B311C006AA06C /* RLServiceProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F7E2D36B121B311C006AA06C /* RLServiceProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E2D368121B311C006AA06C /* RLServiceProvider.m */; };
+		F7E2D369121B311C006AA06C /* RLInitializedServiceProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E2D368121B311C006AA06C /* RLInitializedServiceProvider.m */; };
+		F7E2D36A121B311C006AA06C /* RLInitializedServiceProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = F7E2D367121B311C006AA06C /* RLInitializedServiceProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F7E2D36B121B311C006AA06C /* RLInitializedServiceProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E2D368121B311C006AA06C /* RLInitializedServiceProvider.m */; };
 		F7E2D3D8121B4133006AA06C /* TestServiceProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E2D3D7121B4133006AA06C /* TestServiceProvider.m */; };
+		F7F3C19C1221A57C00338256 /* RLServiceProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = F7F3C19B1221A57C00338256 /* RLServiceProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F7F3C1A91221A75C00338256 /* RLConvenienceConstructedServiceProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F3C1A81221A75C00338256 /* RLConvenienceConstructedServiceProvider.m */; };
+		F7F3C1AA1221A75C00338256 /* RLConvenienceConstructedServiceProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = F7F3C1A71221A75C00338256 /* RLConvenienceConstructedServiceProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F7F3C1AB1221A75C00338256 /* RLConvenienceConstructedServiceProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F3C1A81221A75C00338256 /* RLConvenienceConstructedServiceProvider.m */; };
+		F7F3C1D71221AA2900338256 /* RLAbstractServiceProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F3C1D61221AA2900338256 /* RLAbstractServiceProvider.m */; };
+		F7F3C1D81221AA2900338256 /* RLAbstractServiceProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = F7F3C1D51221AA2900338256 /* RLAbstractServiceProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F7F3C1D91221AA2900338256 /* RLAbstractServiceProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F3C1D61221AA2900338256 /* RLAbstractServiceProvider.m */; };
+		F7F3C23F1221AE1800338256 /* RLAbstractServiceProvider+PrivateAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = F7F3C23E1221AE1800338256 /* RLAbstractServiceProvider+PrivateAdditions.h */; };
 		F7F55B1D12213952008CF5CA /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F55B1C12213952008CF5CA /* OCMock.framework */; };
 		F7F55B4412215257008CF5CA /* RelianceIntegrationTest.plist in Resources */ = {isa = PBXBuildFile; fileRef = F7F55B4312215257008CF5CA /* RelianceIntegrationTest.plist */; };
 		F7F55B4812215A11008CF5CA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F55B4712215A11008CF5CA /* Foundation.framework */; };
@@ -70,11 +78,16 @@
 		F7E2D31C121B243E006AA06C /* TestProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestProtocol.h; sourceTree = "<group>"; };
 		F7E2D357121B2FDF006AA06C /* TestProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestProvider.h; sourceTree = "<group>"; };
 		F7E2D358121B2FDF006AA06C /* TestProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestProvider.m; sourceTree = "<group>"; };
-		F7E2D367121B311C006AA06C /* RLServiceProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = RLServiceProvider.h; sourceTree = "<group>"; };
-		F7E2D368121B311C006AA06C /* RLServiceProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = RLServiceProvider.m; sourceTree = "<group>"; };
-		F7E2D3D6121B4133006AA06C /* TestServiceProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = TestServiceProvider.h; sourceTree = "<group>"; };
+		F7E2D367121B311C006AA06C /* RLInitializedServiceProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = RLInitializedServiceProvider.h; sourceTree = "<group>"; };
+		F7E2D368121B311C006AA06C /* RLInitializedServiceProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = RLInitializedServiceProvider.m; sourceTree = "<group>"; };
 		F7E2D3D7121B4133006AA06C /* TestServiceProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestServiceProvider.m; sourceTree = "<group>"; };
 		F7E2D3E4121B44DA006AA06C /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		F7F3C19B1221A57C00338256 /* RLServiceProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RLServiceProvider.h; path = ../RLServiceProvider.h; sourceTree = "<group>"; };
+		F7F3C1A71221A75C00338256 /* RLConvenienceConstructedServiceProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLConvenienceConstructedServiceProvider.h; sourceTree = "<group>"; };
+		F7F3C1A81221A75C00338256 /* RLConvenienceConstructedServiceProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLConvenienceConstructedServiceProvider.m; sourceTree = "<group>"; };
+		F7F3C1D51221AA2900338256 /* RLAbstractServiceProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLAbstractServiceProvider.h; sourceTree = "<group>"; };
+		F7F3C1D61221AA2900338256 /* RLAbstractServiceProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLAbstractServiceProvider.m; sourceTree = "<group>"; };
+		F7F3C23E1221AE1800338256 /* RLAbstractServiceProvider+PrivateAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RLAbstractServiceProvider+PrivateAdditions.h"; sourceTree = "<group>"; };
 		F7F55B1C12213952008CF5CA /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMock.framework; path = /Library/Frameworks/OCMock.framework; sourceTree = "<absolute>"; };
 		F7F55B4312215257008CF5CA /* RelianceIntegrationTest.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = RelianceIntegrationTest.plist; path = "Tests/../Integration tests/Test resources/RelianceIntegrationTest.plist"; sourceTree = SOURCE_ROOT; };
 		F7F55B4712215A11008CF5CA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
@@ -152,8 +165,14 @@
 				F7E2D09E121AF5F5006AA06C /* RLContainer.m */,
 				F7E2D0D0121AF893006AA06C /* RLServiceDescription.h */,
 				F7E2D0D1121AF893006AA06C /* RLServiceDescription.m */,
-				F7E2D367121B311C006AA06C /* RLServiceProvider.h */,
-				F7E2D368121B311C006AA06C /* RLServiceProvider.m */,
+				F7F3C19B1221A57C00338256 /* RLServiceProvider.h */,
+				F7F3C23E1221AE1800338256 /* RLAbstractServiceProvider+PrivateAdditions.h */,
+				F7F3C1D51221AA2900338256 /* RLAbstractServiceProvider.h */,
+				F7F3C1D61221AA2900338256 /* RLAbstractServiceProvider.m */,
+				F7E2D367121B311C006AA06C /* RLInitializedServiceProvider.h */,
+				F7E2D368121B311C006AA06C /* RLInitializedServiceProvider.m */,
+				F7F3C1A71221A75C00338256 /* RLConvenienceConstructedServiceProvider.h */,
+				F7F3C1A81221A75C00338256 /* RLConvenienceConstructedServiceProvider.m */,
 				F76365F112206FE600DB6ADC /* RLServiceParser.h */,
 				F76365F212206FE600DB6ADC /* RLServiceParser.m */,
 			);
@@ -229,7 +248,6 @@
 				F7E2D0AB121AF69A006AA06C /* TestServiceDescription.m */,
 				F7E2D07C121AE3F6006AA06C /* TestContainer.h */,
 				F7E2D07D121AE3F6006AA06C /* TestContainer.m */,
-				F7E2D3D6121B4133006AA06C /* TestServiceProvider.h */,
 				F7E2D3D7121B4133006AA06C /* TestServiceProvider.m */,
 				F76365EB12206E2200DB6ADC /* TestServiceParser.m */,
 			);
@@ -257,9 +275,13 @@
 			files = (
 				F7E2D09F121AF5F5006AA06C /* RLContainer.h in Headers */,
 				F7E2D0D3121AF893006AA06C /* RLServiceDescription.h in Headers */,
-				F7E2D36A121B311C006AA06C /* RLServiceProvider.h in Headers */,
+				F7E2D36A121B311C006AA06C /* RLInitializedServiceProvider.h in Headers */,
 				F767141B12201B56004C816B /* Reliance.h in Headers */,
 				F76365F412206FE600DB6ADC /* RLServiceParser.h in Headers */,
+				F7F3C19C1221A57C00338256 /* RLServiceProvider.h in Headers */,
+				F7F3C1AA1221A75C00338256 /* RLConvenienceConstructedServiceProvider.h in Headers */,
+				F7F3C1D81221AA2900338256 /* RLAbstractServiceProvider.h in Headers */,
+				F7F3C23F1221AE1800338256 /* RLAbstractServiceProvider+PrivateAdditions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,7 +335,6 @@
 			};
 			buildConfigurationList = 1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "Reliance" */;
 			compatibilityVersion = "Xcode 3.1";
-			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				en,
@@ -371,8 +392,10 @@
 			files = (
 				F7E2D0A0121AF5F5006AA06C /* RLContainer.m in Sources */,
 				F7E2D0D4121AF893006AA06C /* RLServiceDescription.m in Sources */,
-				F7E2D36B121B311C006AA06C /* RLServiceProvider.m in Sources */,
+				F7E2D36B121B311C006AA06C /* RLInitializedServiceProvider.m in Sources */,
 				F76365F512206FE600DB6ADC /* RLServiceParser.m in Sources */,
+				F7F3C1AB1221A75C00338256 /* RLConvenienceConstructedServiceProvider.m in Sources */,
+				F7F3C1D91221AA2900338256 /* RLAbstractServiceProvider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,7 +408,7 @@
 				F7E2D0AC121AF69A006AA06C /* TestServiceDescription.m in Sources */,
 				F7E2D0D2121AF893006AA06C /* RLServiceDescription.m in Sources */,
 				F7E2D359121B2FDF006AA06C /* TestProvider.m in Sources */,
-				F7E2D369121B311C006AA06C /* RLServiceProvider.m in Sources */,
+				F7E2D369121B311C006AA06C /* RLInitializedServiceProvider.m in Sources */,
 				F7E2D3D8121B4133006AA06C /* TestServiceProvider.m in Sources */,
 				F767140712201AC6004C816B /* IntegrationTest.m in Sources */,
 				F767143312201D35004C816B /* PlaceFinder.m in Sources */,
@@ -394,6 +417,8 @@
 				F767143C12201DC4004C816B /* ConfigurationStore.m in Sources */,
 				F76365EC12206E2200DB6ADC /* TestServiceParser.m in Sources */,
 				F76365F312206FE600DB6ADC /* RLServiceParser.m in Sources */,
+				F7F3C1A91221A75C00338256 /* RLConvenienceConstructedServiceProvider.m in Sources */,
+				F7F3C1D71221AA2900338256 /* RLAbstractServiceProvider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

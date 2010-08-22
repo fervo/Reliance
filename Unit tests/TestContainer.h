@@ -28,7 +28,7 @@
 #import <OCMock/OCMock.h>
 #import <Reliance/RLContainer.h>
 #import <Reliance/RLServiceDescription.h>
-#import <Reliance/RLServiceProvider.h>
+#import <Reliance/RLInitializedServiceProvider.h>
 #import "TestProtocol.h"
 #import "TestProvider.h"
 

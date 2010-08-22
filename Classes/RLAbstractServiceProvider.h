@@ -1,8 +1,8 @@
 //
-//  TestServiceProvider.h
+//  RLAbstractServiceProvider.h
 //  Reliance
 //
-//  Created by Magnus Nordlander on 2010-08-18.
+//  Created by Magnus Nordlander on 2010-08-17.
 //  Copyright (c) 2010 Smiling Plants HB
 //  
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,12 +24,18 @@
 //  THE SOFTWARE.
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <Foundation/Foundation.h>
 #import <Reliance/RLServiceProvider.h>
-#import "TestProvider.h"
 
-@interface TestServiceProvider : SenTestCase {
-
+@interface RLAbstractServiceProvider : NSObject <RLServiceProvider> {
+@protected 
+  Class providerClass;
+  NSArray* dependencies;
+  
+  NSMutableDictionary* instanceCache;
 }
+@property (assign, nonatomic) Class providerClass;
+@property (retain, nonatomic) NSArray* dependencies;
 
+-(id)instantiateProviderWithResolvedDependencies:(NSArray*)resolvedDependencies;
 @end
