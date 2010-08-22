@@ -31,10 +31,25 @@
   for (NSDictionary* serviceDict in [containerDescription objectForKey:@"services"])
   {
     RLServiceDescription* serviceDescription = [[RLServiceDescription alloc] init];
-    serviceDescription.serviceName = [serviceDict objectForKey:@"serviceDescription"];
+    serviceDescription.serviceName = [serviceDict objectForKey:@"serviceName"];
+    serviceDescription.requiredProtocol = NSProtocolFromString([serviceDict objectForKey:@"requiredProtocol"]);
     
     [container addServiceWithDescription:serviceDescription];
     [serviceDescription release];
+  }
+  
+  // Parse providers
+  for (NSString* serviceName in [containerDescription objectForKey:@"providers"])
+  {
+    NSDictionary* providerDict = [[containerDescription objectForKey:@"providers"] objectForKey:serviceName];
+    
+    RLServiceProvider* provider = [[RLServiceProvider alloc] init];
+    provider.providerClass = NSClassFromString([providerDict objectForKey:@"providerClass"]);
+    provider.initializer = NSSelectorFromString([providerDict objectForKey:@"initializer"]);
+    provider.dependencies = [providerDict objectForKey:@"dependencies"];
+    
+    [container setProvider:provider forService:serviceName];
+    [provider release];
   }
 }
 

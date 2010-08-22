@@ -7,7 +7,27 @@
 		<dict>
 			<key>serviceName</key>
 			<string>testService</string>
+			<key>requiredProtocol</key>
+			<string>TestProtocol</string>
+		</dict>
+		<dict>
+			<key>serviceName</key>
+			<string>fooService</string>
 		</dict>
 	</array>
+	<key>providers</key>
+	<dict>
+		<key>testService</key>
+		<dict>
+			<key>providerClass</key>
+			<string>TestProvider</string>
+			<key>initializer</key>
+			<string>initWithFooService:</string>
+			<key>dependencies</key>
+			<array>
+				<string>fooService</string>
+			</array>
+		</dict>
+	</dict>
 </dict>
 </plist>

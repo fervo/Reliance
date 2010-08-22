@@ -33,45 +33,9 @@
 {
   RLContainer* container = [[RLContainer alloc] init];
   
-  RLServiceDescription* placeFinderService = [[RLServiceDescription alloc] init];
-  placeFinderService.serviceName = @"placeFinderService";
-  [container addServiceWithDescription:placeFinderService];
+  RLServiceParser* parser = [[RLServiceParser alloc] initWithContentsOfFile:[[NSBundle bundleForClass:[IntegrationTest class]] pathForResource:@"RelianceIntegrationTest" ofType:@"plist"]];
   
-  RLServiceDescription* dataContextService = [[RLServiceDescription alloc] init];
-  dataContextService.serviceName = @"dataContextService";
-  [container addServiceWithDescription:dataContextService];
-  
-  RLServiceDescription* sqlTransportService = [[RLServiceDescription alloc] init];
-  sqlTransportService.serviceName = @"sqlTransportService";
-  [container addServiceWithDescription:sqlTransportService];
-  
-  RLServiceDescription* configurationStoreService = [[RLServiceDescription alloc] init];
-  configurationStoreService.serviceName = @"configurationStoreService";
-  [container addServiceWithDescription:configurationStoreService];
-  
-  RLServiceProvider* placeFinderProvider = [[RLServiceProvider alloc] init];
-  placeFinderProvider.providerClass = [PlaceFinder class];
-  placeFinderProvider.initializer = @selector(initWithDataContext:);
-  placeFinderProvider.dependencies = [NSArray arrayWithObject:@"dataContextService"];
-  [container setProvider:placeFinderProvider forService:@"placeFinderService"];
-  
-  RLServiceProvider* dataContextProvider = [[RLServiceProvider alloc] init];
-  dataContextProvider.providerClass = [DataContext class];
-  dataContextProvider.initializer = @selector(initWithSqlTransport:andConfigurationStore:);
-  dataContextProvider.dependencies = [NSArray arrayWithObjects:@"sqlTransportService", @"configurationStoreService", nil];
-  [container setProvider:dataContextProvider forService:@"dataContextService"];
-  
-  RLServiceProvider* sqlTransportProvider = [[RLServiceProvider alloc] init];
-  sqlTransportProvider.providerClass = [SqlTransport class];
-  sqlTransportProvider.initializer = @selector(initWithConfigurationStore:);
-  sqlTransportProvider.dependencies = [NSArray arrayWithObject:@"configurationStoreService"];
-  [container setProvider:sqlTransportProvider forService:@"sqlTransportService"];
-  
-  RLServiceProvider* configurationStoreProvider = [[RLServiceProvider alloc] init];
-  configurationStoreProvider.providerClass = [ConfigurationStore class];
-  configurationStoreProvider.initializer = @selector(init);
-  configurationStoreProvider.dependencies = [NSArray array];
-  [container setProvider:configurationStoreProvider forService:@"configurationStoreService"];
+  [parser parseIntoContainer:container];
 
   id placeFinder = [container service:@"placeFinderService"];
   
