@@ -2,6 +2,9 @@
 
 A Dependency injection container for Objective-C.
 
+## Caveat
+*This project is no longer actively developed by Fervo. We're still willing to merge PRs, but we're moving away from this internally. If you have a vested interest in this project and want to adopt it, contact us at magnus@fervo.se.*
+
 ## Status
 
 Most stuff sort of works. However, as you can see from the tests, there's a lot of fault injection still to be done.
